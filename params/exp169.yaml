@@ -1,0 +1,77 @@
+# ==================================================
+# General parameters
+# ==================================================
+
+print_model: true
+
+# NAME of this run
+name: "exp169-geneva-codraw"
+seed: 42
+
+# watch
+vis_step: 20
+# vis_sample_step: 20
+# save_step: 100
+# eval_step: 100
+vis_sample_step: 200
+save_step: 212000  # default=2000, codraw=212000, iclevr=186000
+eval_step: 2000
+
+# dataset
+dataset: "codraw"
+
+dataset_path: "./data/CoDraw/codraw_train.h5"
+valid_dataset_path: "./data/CoDraw/codraw_val.h5"
+test_dataset_path: "./data/CoDraw/codraw_test.h5"
+
+embed_dataset_path: "./data/CoDraw/codraw_train_embeddings_exp78.h5"
+valid_embed_dataset_path: "./data/CoDraw/codraw_valid_embeddings_exp78.h5"
+test_embed_dataset_path: "./data/CoDraw/codraw_test_embeddings_exp78.h5"
+
+detector_localizer_path: "./data/models/codraw_inception_best_checkpoint.pth"
+
+# run
+batch_size: 64
+eval_batch_size: 10
+num_workers: 32
+epochs: 400  # batch_size 32 --> 64, then epochs 200 --> 400
+image_size: 128
+stdin: "Y"
+
+# ==================================================
+# GeNeVA parameters
+# ==================================================
+
+# generator
+image_feat_dim: 512
+generator_sn: true
+generator_norm: "in"
+embedding_dim: 768
+condaug_out_dim: 256
+cond_kl_reg: 1.0
+noise_dim: 100
+gen_fusion: "tirg-spade"
+sta: "concat"
+nhead: 8
+res_mask_post: true
+multi_channel_gate: true
+use_relnet: true
+# discriminator
+discriminator_arch: "unet"
+discriminator_sn: true
+num_objects: 58
+disc_fusion: "subtract"
+use_stap_disc: false  # STAP is false for SSR V3
+# misc
+generator_lr: 0.0001
+generator_beta1: 0.0
+generator_beta2: 0.9
+discriminator_lr: 0.0004
+discriminator_beta1: 0.0
+discriminator_beta2: 0.9
+wrong_fake_ratio: 0.5
+gp_reg: 10.0
+aux_reg: 10.0
+
+# SCAIN
+num_parallel_search: 1

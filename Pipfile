@@ -1,0 +1,50 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.7"
+
+[dev-packages]
+pudb = "*"
+torchsummary = "*"
+line-profiler = "*"
+pynvim = "*"
+neovim = "*"
+jedi = "*"
+sphinx = "*"
+sphinx_rtd_theme = "*"
+
+[packages]
+torch = "==1.4.0"
+torchvision = "==0.5.0"
+numpy = "*"
+jupyterlab = "*"
+ipykernel = "*"
+matplotlib = "*"
+opencv-python = "*"
+seaborn = "*"
+h5py = "*"
+tqdm = "*"
+pillow = "*"
+fastprogress = "*"
+wandb = "*"
+joblib = "*"
+rainbow_logging_handler = "*"
+gdown = "*"
+pep8 = "*"
+flake8 = "*"
+autopep8 = "*"
+ipywidgets = "*"
+easydict = "*"
+sklearn = "*"
+wordcloud = "*"
+transformers = "*"
+adabelief-pytorch = "==0.1.0"
+
+[scripts]
+main = 'python src/main.py'
+setup = 'python data/download.py'
+jupyter = "jupyter-lab --port 9393"
+jupyter_docker = "jupyter-lab --port 9393 --ip=0.0.0.0 --allow-root"

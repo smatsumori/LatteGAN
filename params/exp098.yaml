@@ -1,0 +1,30 @@
+# ==================================================
+# General parameters
+# ==================================================
+
+# NAME of this run
+name: "exp98-generate-embeddings"
+seed: 42
+
+# dataset
+dataset: "iclevr"
+dataset_path: "./data/iCLEVR/clevr_train.h5"
+valid_dataset_path: "./data/iCLEVR/clevr_val.h5"
+test_dataset_path: "./data/iCLEVR/clevr_test.h5"
+glove_path: "./data/misc/glove_codraw_iclevr.txt"
+
+# run
+batch_size: 50
+num_workers: 2
+
+# ==================================================
+# Special parameters
+# ==================================================
+
+fork: "exp95"
+model_path: "./results/experiments/exp95-pretrain-tirg/snapshots/iclevr_pretrain_models_epoch_17.pth"
+
+sentence_encoder_type: "bert"
+text_dim: 768
+
+save_root_dir: "./data/iCLEVR/"
